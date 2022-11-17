@@ -22,7 +22,7 @@ const Admin = () => {
 
   useEffect(() => {
     axios
-      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchall`)
+      .get(`http://35.72.226.153:8060/quote/fetchall`)
       .then(({ data }) => {
         setRq(data);
         if (data.length <= 0) {
@@ -45,7 +45,7 @@ const Admin = () => {
     setRq([]);
     axios
       .post(
-        `https://intoglo-first-api.herokuapp.com/quote/fetchByEmail`,
+        `http://35.72.226.153:8060/quote/fetchByEmail`,
         formData,
         {
           headers: { "Content-Type": "application/json" },
@@ -67,7 +67,7 @@ const Admin = () => {
   const handle_sea = () => {
     setRq([]);
     axios
-      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/sea`)
+      .get(`http://35.72.226.153:8060/quote/fetchByMode/sea`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -87,7 +87,7 @@ const Admin = () => {
   const handle_air = () => {
     setRq([]);
     axios
-      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/air`)
+      .get(`http://35.72.226.153:8060/quote/fetchByMode/air`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -104,7 +104,7 @@ const Admin = () => {
   const handle_lcl = () => {
     setRq([]);
     axios
-      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchbymode/LCL`)
+      .get(`http://35.72.226.153:8060/quote/fetchbymode/LCL`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -120,7 +120,7 @@ const Admin = () => {
   const handle_fcl = () => {
       setRq([]);
       axios
-      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/FCL`)
+      .get(`http://35.72.226.153:8060/quote/fetchByMode/FCL`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -137,7 +137,7 @@ const Admin = () => {
     setRq([]);
     axios
       .get(
-        `https://intoglo-first-api.herokuapp.com/quote/fetchByMode/air?transportation_by=SC`
+        `http://35.72.226.153:8060/quote/fetchByMode/air?transportation_by=SC`
       )
       .then(({ data }) => {
         setRq(data);
@@ -268,13 +268,13 @@ const Admin = () => {
               >
                 FCL
               </button>
-              <button
+              {/* <button
                 type="button"
                 onClick={handle_air_sc}
                 class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
                 SC{" "}
-              </button>
+              </button> */}
               <br></br>
               <br></br>
               <div className="searchform">
