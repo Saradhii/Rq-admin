@@ -2,6 +2,7 @@ name: Using Cypress GH Action
 
 on: push
 
+
 jobs:
   single-run:
     runs-on: ubuntu-latest
