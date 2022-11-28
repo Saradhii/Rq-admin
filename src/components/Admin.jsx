@@ -22,7 +22,7 @@ const Admin = () => {
 
   useEffect(() => {
     axios
-      .get(`http://35.72.226.153:8060/quote/fetchall`)
+      .get(`https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchall`)
       .then(({ data }) => {
         setRq(data);
         if (data.length <= 0) {
@@ -45,7 +45,7 @@ const Admin = () => {
     setRq([]);
     axios
       .post(
-        `http://35.72.226.153:8060/quote/fetchByEmail`,
+        `https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchByEmail`,
         formData,
         {
           headers: { "Content-Type": "application/json" },
@@ -67,7 +67,7 @@ const Admin = () => {
   const handle_sea = () => {
     setRq([]);
     axios
-      .get(`http://35.72.226.153:8060/quote/fetchByMode/sea`)
+      .get(`https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchByMode/sea`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -87,7 +87,7 @@ const Admin = () => {
   const handle_air = () => {
     setRq([]);
     axios
-      .get(`http://35.72.226.153:8060/quote/fetchByMode/air`)
+      .get(`https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchByMode/air`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -104,7 +104,7 @@ const Admin = () => {
   const handle_lcl = () => {
     setRq([]);
     axios
-      .get(`http://35.72.226.153:8060/quote/fetchbymode/LCL`)
+      .get(`https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchbymode/LCL`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -120,7 +120,7 @@ const Admin = () => {
   const handle_fcl = () => {
       setRq([]);
       axios
-      .get(`http://35.72.226.153:8060/quote/fetchByMode/FCL`)
+      .get(`https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchByMode/FCL`)
       .then(({ data }) => {
         setRq(data);
       })
@@ -137,7 +137,7 @@ const Admin = () => {
     setRq([]);
     axios
       .get(
-        `http://35.72.226.153:8060/quote/fetchByMode/air?transportation_by=SC`
+        `https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchByMode/air?transportation_by=SC`
       )
       .then(({ data }) => {
         setRq(data);
