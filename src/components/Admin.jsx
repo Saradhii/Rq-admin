@@ -6,7 +6,6 @@ import Posts from "./Posts";
 import Accordion from "./Accordion";
 import Pagination from "./Pagination";
 
-
 const Admin = () => {
   const [rq, setRq] = useState([]);
   const [showModal, setShowModal] = useState(false);
