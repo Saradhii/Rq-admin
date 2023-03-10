@@ -4,16 +4,36 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Posts from "./Posts";
 import Accordion from "./Accordion";
+import Accordion2 from "./Accordion2";
 import Pagination from "./Pagination";
 
 
 const Admin = () => {
+  const [leads,setLeads] = useState(false);
   const [rq, setRq] = useState([]);
   const [showModal, setShowModal] = useState(false);
   var [errmsg, Seterrmsg] = useState("No Results !");
   const [formData, Setformdata] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
+  const leaddata = [{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    email:"saradhi@gmail.com",
+    countrycode:"+91",
+    phone:"8142385201",
+    companyname:"intoglo",
+    companyurl:"https:www.intoglo.com",
+    address:"Road no:103 Villas",
+    city:"delhi",
+    state:"NCR",
+    country:"india",
+    source:"source",
+    sourceurl:"source url",
+    created:"21/05/2023",
+    message:"sample"
+  }]
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -167,9 +187,28 @@ const Admin = () => {
             <aside class="w-64" aria-label="Sidebar">
               <div class="overflow-y-auto py-4 px-3 bg-[#1f2937] rounded dark:bg-gray-800">
                 <ul class="space-y-2">
+                <li>
+                    <div onClick={()=>{
+                      setLeads(true);
+                    }}
+                      class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                      </svg>
+                      <span class="ml-3">Leads</span>
+                    </div>
+                  </li>
                   <li>
                     <a
-                      href="http://35.72.226.153:9000"
+                      href="/"
                       class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                       <svg
@@ -207,7 +246,7 @@ const Admin = () => {
                   </li>
                   <li>
                     <a
-                      href="http://35.72.226.153:9000"
+                      href="/"
                       class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                       <svg
@@ -297,7 +336,50 @@ const Admin = () => {
             </div>
           </div>
           <div></div>
-          <div className="body2">
+            {leads?<>
+              <>
+            <div className="body1">
+            <div className="data">
+              <div className="theadmain2">
+                <div>Id</div>
+                <div>First Name</div>
+                {/* <div>Last Name</div> */}
+                <div>Email</div>
+                {/* <div>Country Code</div> */}
+                <div>Phone Number</div>
+                <div>Company Name</div>
+                {/* <div>Company URL</div> */}
+                <div>Address</div>
+                {/* <div>City</div>
+                <div>State</div>
+                <div>Country</div> */}
+                {/* <div>Source URL</div> */}
+                <div>Source</div>
+                <div>Created Date</div>
+                <div>Message</div>
+              </div>
+              {leaddata.length !== 0 ? (
+                <>
+                {leaddata && leaddata.map((e)=>{
+                  return(
+                    <>
+                     <Accordion2 e={e}/>
+                    </>
+                    )
+                })}
+                </>
+              ) : (
+                <>
+                  <button class="accordion_nores">
+                    <div class="spinner-4"></div>
+                  </button>
+                </>
+              )}
+            </div>
+            </div>
+          </>
+            </>:<>
+            <div className="body2">
             <div className="data">
               <div className="theadmain">
                 <div>Quote Id</div>
@@ -335,6 +417,7 @@ const Admin = () => {
               />
             </div>
           </div>
+            </>}
         </div>
       </div>
       {showModal ? (
