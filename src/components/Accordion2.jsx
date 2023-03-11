@@ -11,11 +11,11 @@ const Accordion = ({ e }) => {
       <div className="accordion2" onClick={() => setIsActive(!isActive)}>
         <div>
         <div className="thead2">
-                  <div>{e.firstname}&nbsp;{e.lastname}</div>
-                  <div>{e.companyname}</div>
-                  <div>{e.jobtitle}</div>
+                  <div>{e.firstName}&nbsp;{e.lastName}</div>
+                  <div>{e.companyName}</div>
+                  <div>{e.jobTitle}</div>
                   <div>{e.email}</div>
-                  <div>{e.phone}</div>
+                  <div>{e.phone.phoneNumber}</div>
                   <div>{e.country}</div>
                   <div>{e.state}</div>
                   <div>{e.city}</div>
@@ -27,24 +27,24 @@ const Accordion = ({ e }) => {
       <table id="customers">
                   <tr>
                     <td>Id</td>
-                    <td>{e.id}</td>
+                    <td>{e._id}</td>
                   </tr>
                   {/* Product details */}
                   <tr>
                     <td>First Name</td>
-                    <td>{e.firstname}</td>
+                    <td>{e.firstName}</td>
                   </tr>
                   <tr>
                     <td>Last Name</td>
-                    <td>{e.lastname}</td>
+                    <td>{e.lastName}</td>
                   </tr>
                   <tr>
                     <td>Company Name</td>
-                    <td>{e.companyname}</td>
+                    <td>{e.companyName}</td>
                   </tr>
                   <tr>
                     <td>Job title</td>
-                    <td>{e.jobtitle}</td>
+                    <td>{e.jobTitle}</td>
                   </tr>
                   <tr>
                     <td>Work Email</td>
@@ -52,7 +52,7 @@ const Accordion = ({ e }) => {
                   </tr>
                   <tr>
                     <td>Phone Number</td>
-                    <td>{e.phone}</td>
+                    <td>{e.phone.countryDialCode}&nbsp;&nbsp;{e.phone.phoneNumber}</td>
                   </tr>
                   <tr>
                     <td>Country</td>
@@ -68,7 +68,7 @@ const Accordion = ({ e }) => {
                   </tr>
                   <tr>
                     <td>Annual International Freight Shipment</td>
-                    <td>{e.Annual_International_Freight_Shipment}</td>
+                    <td>{e.annualInternationalFreightShipments}</td>
                   </tr>
                   <tr>
                     <td>Message</td>

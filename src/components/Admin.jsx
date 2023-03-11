@@ -19,125 +19,126 @@ const Admin = () => {
   const [postsPerPage] = useState(8);
   const [currentPage2, setCurrentPage2] = useState(1);
   const [postsPerPage2] = useState(6);
+  const [leaddata,setLeaddata]=useState([]);
 
-  const leaddata = [{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },{
-    id:1,
-    firstname:"saradhi",
-    lastname:"vijaya",
-    companyname:"intoglo",
-    jobtitle:"manager",
-    email:"saradhi@gmail.com",
-    phone:"8142385201",
-    country:"india",
-    state:"NCR",
-    city:"delhi",
-    Annual_International_Freight_Shipment:"example",
-    message:"sample"
-  },]
+  // const leaddata = [{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },{
+  //   id:1,
+  //   firstname:"saradhi",
+  //   lastname:"vijaya",
+  //   companyname:"intoglo",
+  //   jobtitle:"manager",
+  //   email:"saradhi@gmail.com",
+  //   phone:"8142385201",
+  //   country:"india",
+  //   state:"NCR",
+  //   city:"delhi",
+  //   Annual_International_Freight_Shipment:"example",
+  //   message:"sample"
+  // },]
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -154,6 +155,19 @@ const Admin = () => {
       .get(`https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchall`)
       .then(({ data }) => {
         setRq(data);
+        if (data.length <= 0) {
+          Seterrmsg("No Results found !");
+          setShowModal(true);
+        }
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8070/api/request-callback/quotes`)
+      .then(({ data }) => {
+        console.log(data);
+        setLeaddata(data.quotes);
         if (data.length <= 0) {
           Seterrmsg("No Results found !");
           setShowModal(true);
