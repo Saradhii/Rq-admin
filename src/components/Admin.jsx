@@ -164,7 +164,7 @@ const Admin = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/api/request-callback/quotes`)
+      .get(`https://metacargo.io/api/request-callback/quotes`)
       .then(({ data }) => {
         console.log(data);
         setLeaddata(data.quotes);
