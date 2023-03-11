@@ -135,7 +135,7 @@
   background-color: #1f2937;
   height:50px;
   display: grid;
-  grid-template-columns: 8% 12% 13% 12% 10% 15% 10% 10% 10%;
+  grid-template-columns: 15% 13% 10% 16% 15% 10% 10% 11%;
   padding:2px;
   color: white;
 }
@@ -154,7 +154,7 @@
   /* background-color: #1f2937; */
   height:50px;
   display: grid;
-  grid-template-columns: 8% 12% 13% 12% 10% 15% 10% 10% 10%;
+  grid-template-columns: 15% 13% 10% 16% 15% 10% 10% 11%;
   padding:2px;
 }
 .theadmain>div{
@@ -301,6 +301,8 @@
   #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
+    /* border:1px solid red; */
+    width:10%
   }
   .thead>div{
     text-align: center;

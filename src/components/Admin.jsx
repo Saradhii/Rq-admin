@@ -6,39 +6,148 @@ import Posts from "./Posts";
 import Accordion from "./Accordion";
 import Accordion2 from "./Accordion2";
 import Pagination from "./Pagination";
+import Pagination2 from "./Pagination2";
 
 
 const Admin = () => {
-  const [leads,setLeads] = useState(false);
+  const [leads,setLeads] = useState(true);
   const [rq, setRq] = useState([]);
   const [showModal, setShowModal] = useState(false);
   var [errmsg, Seterrmsg] = useState("No Results !");
   const [formData, Setformdata] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
+  const [currentPage2, setCurrentPage2] = useState(1);
+  const [postsPerPage2] = useState(6);
+
   const leaddata = [{
     id:1,
     firstname:"saradhi",
     lastname:"vijaya",
-    email:"saradhi@gmail.com",
-    countrycode:"+91",
-    phone:"8142385201",
     companyname:"intoglo",
-    companyurl:"https:www.intoglo.com",
-    address:"Road no:103 Villas",
-    city:"delhi",
-    state:"NCR",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
     country:"india",
-    source:"source",
-    sourceurl:"source url",
-    created:"21/05/2023",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
     message:"sample"
-  }]
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },{
+    id:1,
+    firstname:"saradhi",
+    lastname:"vijaya",
+    companyname:"intoglo",
+    jobtitle:"manager",
+    email:"saradhi@gmail.com",
+    phone:"8142385201",
+    country:"india",
+    state:"NCR",
+    city:"delhi",
+    Annual_International_Freight_Shipment:"example",
+    message:"sample"
+  },]
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = rq.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const indexOfLastPost2 = currentPage2 * postsPerPage2;
+  const indexOfFirstPost2 = indexOfLastPost2 - postsPerPage2;
+  const currentPosts2 = leaddata.slice(indexOfFirstPost2, indexOfLastPost2);
+  const paginate2 = (pageNumber2) => setCurrentPage2(pageNumber2);
 
   useEffect(() => {
     axios
@@ -153,24 +262,6 @@ const Admin = () => {
       });
   };
 
-  const handle_air_sc = () => {
-    setRq([]);
-    axios
-      .get(
-        `https://ntem3igx14.execute-api.ap-northeast-1.amazonaws.com/dev/quote/fetchByMode/air?transportation_by=SC`
-      )
-      .then(({ data }) => {
-        setRq(data);
-      })
-      .catch((error) => {
-        if (error.response) {
-          setRq([]);
-          Seterrmsg(`${error.response.data.message}`);
-          setShowModal(true);
-        }
-      });
-  };
-
   return (
     <>
       <div className="header">
@@ -189,7 +280,7 @@ const Admin = () => {
                 <ul class="space-y-2">
                 <li>
                     <div onClick={()=>{
-                      setLeads(true);
+                      {leads?setLeads(false):setLeads(true);}
                     }}
                       class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
@@ -203,7 +294,7 @@ const Admin = () => {
                         <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                         <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                       </svg>
-                      <span class="ml-3">Leads</span>
+                      <span class="ml-3">{leads?<>Quotes</>:<>Leads</>}</span>
                     </div>
                   </li>
                   <li>
@@ -307,13 +398,6 @@ const Admin = () => {
               >
                 FCL
               </button>
-              {/* <button
-                type="button"
-                onClick={handle_air_sc}
-                class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-              >
-                SC{" "}
-              </button> */}
               <br></br>
               <br></br>
               <div className="searchform">
@@ -341,26 +425,18 @@ const Admin = () => {
             <div className="body1">
             <div className="data">
               <div className="theadmain2">
-                <div>Id</div>
-                <div>First Name</div>
-                {/* <div>Last Name</div> */}
-                <div>Email</div>
-                {/* <div>Country Code</div> */}
-                <div>Phone Number</div>
+                <div>Name</div>
                 <div>Company Name</div>
-                {/* <div>Company URL</div> */}
-                <div>Address</div>
-                {/* <div>City</div>
+                <div>Job Title</div>
+                <div>Email</div>
+                <div>Phone Number</div>
+                <div>Country</div>
                 <div>State</div>
-                <div>Country</div> */}
-                {/* <div>Source URL</div> */}
-                <div>Source</div>
-                <div>Created Date</div>
-                <div>Message</div>
+                <div>City</div>
               </div>
               {leaddata.length !== 0 ? (
                 <>
-                {leaddata && leaddata.map((e)=>{
+                {currentPosts2 && currentPosts2.map((e)=>{
                   return(
                     <>
                      <Accordion2 e={e}/>
@@ -375,7 +451,15 @@ const Admin = () => {
                   </button>
                 </>
               )}
+              <div className="pagination">
+              <Pagination2
+                postsPerPage2={postsPerPage2}
+                totalPosts2={leaddata.length}
+                paginate2={paginate2}
+              />
             </div>
+            </div>
+            
             </div>
           </>
             </>:<>
