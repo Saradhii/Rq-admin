@@ -444,9 +444,9 @@ const Admin = () => {
                 <div>Job Title</div>
                 <div>Email</div>
                 <div>Phone Number</div>
-                <div>Country</div>
-                <div>State</div>
-                <div>City</div>
+                <div>Shipment Mode</div>
+                <div>Annual Shipment</div>
+                <div>Message</div>
               </div>
               {leaddata.length !== 0 ? (
                 <>

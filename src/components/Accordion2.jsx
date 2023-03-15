@@ -16,9 +16,9 @@ const Accordion = ({ e }) => {
                   <div>{e.jobTitle}</div>
                   <div>{e.email}</div>
                   <div>{e.phone.phoneNumber}</div>
-                  <div>{e.country}</div>
-                  <div>{e.state}</div>
-                  <div>{e.city}</div>
+                  <div>{e.shipmentMode}</div>
+                  <div>{e.annualInternationalFreightShipments}</div>
+                  <div>{e.message}</div>
         </div>
         </div>
         <div></div>
@@ -53,18 +53,6 @@ const Accordion = ({ e }) => {
                   <tr>
                     <td>Phone Number</td>
                     <td>{e.phone.countryDialCode}&nbsp;&nbsp;{e.phone.phoneNumber}</td>
-                  </tr>
-                  <tr>
-                    <td>Country</td>
-                    <td>{e.country}</td>
-                  </tr>
-                  <tr>
-                    <td>State</td>
-                    <td>{e.state}</td>
-                  </tr>
-                  <tr>
-                    <td>City</td>
-                    <td>{e.city}</td>
                   </tr>
                   <tr>
                     <td>Annual International Freight Shipment</td>
